@@ -65,7 +65,7 @@ Only data for simulation is uploaded to this github for the file sizes are reaso
 ---
 ## 2 Project Outline / Problem Statement
 
-Air is one of the essential things in our lives. The US  EPA(Environmental Protection Agency) has fought for a long time for better air quality. In this project, we will see the evidence. This analysis shows the air quality of the states. With the air quality data, the simulator shows how the air quality will be changed according to the input factors.
+Air is one of the essential things in our lives. The US EPA(Environmental Protection Agency) has fought for a long time for better air quality. In this project, we see the evidence. This analysis shows how the air quality of the states has been changed. With the air quality data, the simulator also shows how the air quality will be changed according to the input factors. Especially in this phase 1, the focus is on Ozone in Arizona and PM2.5 (particulate matter 2.5 micrometers or less) in Indiana. For the modeling, Random Forest recorded the best score: 0.9998. To build the simulator, libraries like Flask, folium, pickle, geopandas, Polygon were specially used.
 
 ---
 ## 3 Description of Data
