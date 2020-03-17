@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Air Quality</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+	<div class="devider">
+		<table width="1300">
+			<tr><td height="2" bgcolor="#d6d6d0"></td></tr>
+			<tr height="1"><td></td></tr>
+			<tr><td height="1" bgcolor="#d6d6d0"></td></tr>
+		</table>
+	</div>
+	<div class="map">
+		<h2>The Air Quality Index Simulator</h2>
+		<h3>Fill in the blanks and see the simulation result.</h3>
+	</div>
+	<div class="form">
+		<form action="/submit">
+		<table width="1300">
+			<tr height=5></tr>
+			<tr>
+				<td width="2%"></td>
+				<td width="10%">
+					<table>
+						<tr>
+							<td>
+								<label for="air_type">Air type:</label><br>
+								<select id="air_type" name="air_type">
+									<option value="ozone">Ozone</option>
+									<option value="pm2_5">PM 2.5</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="10%">
+					<table>
+						<tr>
+							<td>
+								<label for="state">State:</label><br>
+								<select id="state" name="state">
+									<option value="Arizona">Arizona</option>
+									<option value="Indiana">Indiana</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="15%">
+					<table>
+						<tr height="10%"></tr>
+						<tr height="35%">
+							<td>
+								<label for="year">Year:&nbsp</label>
+							</td>
+							<td>
+								<input type="number" name="year" value="2020">
+							</td>
+						</tr>
+						<tr height="10%"></tr>
+						<tr height="35%">
+							<td>
+								<label for="month">Month:&nbsp</label>
+							</td>
+							<td>
+								<input type="number" name="month" value="7">
+							</td>
+						</tr>
+						<tr height="10%"></tr>
+					</table>
+				</td>
+				<td width="5%"></td>
+				<td width="35%">
+					<table>
+					<tr height="2%"></tr>
+					<tr height="32%">
+						<td>
+							<label for="pp_num_0_50">Number of power plants within 0 ~ 50 miles</label>
+						</td>
+					</tr>
+					<tr height="32%">
+						<td>
+							<label for="pp_num_50_100">Number of power plants within 50 ~ 100 miles</label>
+						</td>
+					</tr>
+					<tr height="32%">
+						<td>
+							<label for="pp_num_100_150">Number of power plants within 100 ~ 150 miles</label>
+						</td>
+					</tr>
+					</table>
+				</td>	
+				<td width="10%">
+					<table>
+					<tr height="2%"></tr>
+					<tr height="32%">
+						<td>
+							<input type="number" name="pp_num_0_50" value="50">
+						</td>
+					</tr>
+					<tr height="32%">
+						<td>
+							<input type="number" name="pp_num_50_100" value="100">
+						</td>
+					</tr>
+					<tr height="32%">
+						<td>
+							<input type="number" name="pp_num_100_150" value="200">
+						</td>
+					</tr>
+					</table>
+				</td>		
+				<td width="2%"></td>	
+				<td width="11%">
+					<table>
+						<tr>
+							<td>
+								<button type="submit">See Result</button>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+	<div class="devider">
+		<table width="1300">
+			<tr><td height="10"></td></tr>
+			<tr><td height="1" bgcolor="#edede6"></td></tr>
+		</table>
+	</div>
+	<div class="map">
+		<form action="/" method="POST">
+			<h3>Select an air type you want to see in the map:
+			<input type="radio" name="option" value="ozone"> <label for="radio">Ozone</label> 
+			<input type="radio" name="option" value="pm2_5"> <label for="radio">PM 2.5</label>
+			<input type="submit" name="submit" id="submit" value="Submit"></h3>
+		</form>
+	</div>
+	<div class="map"><h2>The Map of Air Quality Index [ {{air_name}} ]</h2></div>
+	<div class="map">
+		<table width="1300">
+			<tr height="20">                  
+				<td width="12.5%" bgcolor="red"><font color="white">&nbsp FOSSIL FUEL</font></td>                    
+				<td width="12.5%" bgcolor="purple"><font color="white">&nbsp OIL</font></td>                    
+				<td width="12.5%" bgcolor="brown"><font color="white">&nbsp BIOMASS</font></td>                    
+				<td width="12.5%" bgcolor="pink"><font color="black">&nbsp GAS</font></td>                    
+				<td width="12.5%" bgcolor="yellow"><font color="black">&nbsp HYDRO</font></td>                    
+				<td width="12.5%" bgcolor="green"><font color="white">&nbsp NUCLEAR</font></td>                    
+				<td width="12.5%" bgcolor="orange"><font color="black">&nbsp SUN</font></td>                    
+				<td width="12.5%" bgcolor="gray"><font color="white">&nbsp WIND</font></td>
+			</tr>
+		</table>
+	<div class="map">
+		<iframe width="1300" height="600" src= {{air}}></iframe>
+	</div>
+</body>
+</html>

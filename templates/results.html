@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AQI Modeling</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+	<div class="devider">
+		<table width="1300">
+			<tr><td height="2" bgcolor="#d6d6d0"></td></tr>
+			<tr height="1"><td></td></tr>
+			<tr><td height="1" bgcolor="#d6d6d0"></td></tr>
+		</table>
+	</div>
+	<div class="simul_result">
+		<table width="1300">
+			<tr>
+				<td width="100">
+					<button onclick="goBack()" type="goback">Back</button>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<td>
+								<h2> Predicted {{params[0]}} AQI is <font color="blue">{{prediction}}</font></h2>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Simulation period and place:  <font color="blue">{{params[2]}} {{params[1]}} in {{state}}</font>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<td>
+								Number of power plants within 0 ~ 50 miles : <br>
+								Number of power plants within 50 ~ 100 miles : <br>
+								Number of power plants within 100 ~ 150 miles : <br>
+							</td>
+							<td width="5"></td>
+							<td align="right">
+								{{params[3]}} power plant(s)<br>
+								{{params[4]}} power plant(s) <br>
+								{{params[5]}} power plant(s) <br>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>	
+		</table>
+	</div>
+	<div class="devider">
+		<table width="1300">
+			<tr height="7"><td></td></tr>
+		</table>
+	</div>
+	<div class="simul_map">
+		<iframe width="1300" height="500" src="simul_map.html"></iframe>
+	</div>
+	<div class="devider">
+		<table width="1300">
+			<tr height="20"><td></td></tr>
+			<tr><td height="1" bgcolor="#edede6"></td></tr>
+		</table>
+	</div>
+	<div class="feat_imp">
+		<h2>Feature Importance in Modeling</h2>
+		<center>
+			<img src={{links[0]}} width="1000"></img>
+		</center>		
+	</div>
+	<!--
+	<div class="devider">
+		<table width="1300">
+			<tr height="20"><td></td></tr>
+			<tr><td height="1" bgcolor="#edede6"></td></tr>
+		</table>
+	</div>
+	<div class="prophet">
+		<h2>Prophet Simulation</h2>
+		<center>
+			<img src={{links[1]}} width="860"></img>
+		</center>
+	</div>
+	<div class="simul_prophet_graph">
+		<center>
+			<iframe width="1100" height="500" src="simul_prophet_graph.html"></iframe>
+		</center>		
+	</div>
+	</div>-->
+	<div class="devider">
+		<table width="1300">
+			<tr height="20"><td></td></tr>
+			<tr><td height="1" bgcolor="#edede6"></td></tr>
+		</table>
+	</div>
+	<div>
+		<h2>Trend of Air Quality Index</h2>
+		<center>
+			<img src={{links[2]}} width="1000"></img>
+		</center>
+	<div class="devider">
+		<table width="1300">
+			<tr height="20"><td></td></tr>
+			<tr><td height="1" bgcolor="#edede6"></td></tr>
+		</table>
+	</div>
+	<div>
+		<h2>Seasonality of Air Quality Index</h2>
+		<center>
+			<img src={{links[3]}} width="1000"></img>
+		</center>
+	</div>
+</body>
+<script>
+  function goBack() {
+	window.history.back();
+  }
+</script>
+</html>
